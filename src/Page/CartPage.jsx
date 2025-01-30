@@ -19,7 +19,7 @@ const CartPage = () => {
   const total = subtotal + deliveryCharge;
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8 min-h-screen ">
+    <div className="max-w-6xl mx-auto px-4 py-8 min-h-screen">
       <h1 className="text-3xl font-bold text-gray-800 mb-8 text-center">
         Your Shopping Cart
       </h1>
@@ -94,7 +94,6 @@ const CartPage = () => {
             ))}
           </div>
 
-          {/* Order Summary */}
           <div className="bg-white rounded-xl shadow-sm p-6 h-fit border border-gray-100">
             <h2 className="text-xl font-semibold text-gray-800 mb-6">
               Order Summary
@@ -126,9 +125,12 @@ const CartPage = () => {
                 </span>
               </div>
 
-              <button className="w-full bg-orange-500 text-white py-3.5 rounded-lg hover:bg-orange-600 transition-colors mt-6 font-medium">
+              <Link
+                to="/cart/payment"
+                className="w-full bg-orange-500 text-white py-3.5 rounded-lg hover:bg-orange-600 transition-colors mt-6 font-medium text-center block"
+              >
                 Proceed to Checkout
-              </button>
+              </Link>
             </div>
           </div>
         </div>

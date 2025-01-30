@@ -21,11 +21,11 @@ const CategoryMenu = () => {
   return (
     <div className="container mx-auto px-4 py-20 pt-24">
       <div className="mb-8 text-center">
-        <h2 className="text-4xl font-bold text-gray-800 mb-4 animate-slide-up">
-          Explore Our Delicious Menu
+        <h2 className="text-5xl font-extrabold text-gray-900 mb-4 animate-slide-up">
+          Explore Our <span className="text-orange-500">Delicious</span> Menu
         </h2>
-        <p className="text-gray-600 text-lg animate-slide-up delay-100">
-          Discover a world of flavors crafted with passion and fresh ingredients
+        <p className="text-gray-600 text-lg animate-slide-up delay-100 max-w-lg mx-auto">
+          Discover a world of flavors crafted with passion and fresh ingredients. Indulge in the finest dishes from every corner of the world.
         </p>
       </div>
 
@@ -61,8 +61,8 @@ const CategoryMenu = () => {
             </div>
           ))
         ) : (
-          <p className="text-center text-gray-500 col-span-full">
-            No matching results found.
+          <p className="text-center text-gray-500 text-xl font-semibold col-span-full mt-8">
+            <span className="text-orange-500">No matching results found</span>. Please try a different search.
           </p>
         )}
       </div>
