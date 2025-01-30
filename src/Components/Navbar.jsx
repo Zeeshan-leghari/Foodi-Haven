@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { FiShoppingCart, FiSearch } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import { setSearch } from "../Store/SearchSlice";
+import favicon from "../assets/favicon.png";
 
 const Navbar = () => {
   const cartCount = useSelector((state) => state.cart?.length || 0);
@@ -17,6 +18,11 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center">
+            <img
+              src={favicon}
+              alt="Foodi Haven logo"
+              className="w-10 h-10 object-contain mr-2"
+            />
             <span className="text-2xl font-bold text-gray-800 hover:text-gray-600 transition-colors">
               Foodi Haven
             </span>
@@ -40,12 +46,14 @@ const Navbar = () => {
 
             <Link
               to="/cart"
-              className="p-2 text-gray-600 hover:text-orange-600 relative transition-colors"
+              className="relative transition-colors hover:text-orange-600"
             >
-              <FiShoppingCart className="w-6 h-6" />
-              <span className="absolute -top-1 -right-1 bg-orange-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center transform scale-100 hover:scale-110 transition-transform">
-                {cartCount}
-              </span>
+              <FiShoppingCart className="w-6 h-6 text-gray-600" />
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-orange-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center transform scale-100 hover:scale-110 transition-transform">
+                  {cartCount}
+                </span>
+              )}
             </Link>
           </div>
         </div>
