@@ -1,38 +1,44 @@
-// Navbar.jsx
-import { Link } from 'react-router-dom';
-import { FiShoppingCart, FiSearch } from 'react-icons/fi';
-import { useSelector } from 'react-redux';
+import { Link } from "react-router-dom";
+import { FiShoppingCart, FiSearch } from "react-icons/fi";
+import { useDispatch, useSelector } from "react-redux";
+import { setSearch } from "../Store/SearchSlice";
 
 const Navbar = () => {
   const cartCount = useSelector((state) => state.cart?.length || 0);
+  const searchValue = useSelector((state) => state.search?.search || "");
+  const dispatch = useDispatch();
+
+  const handleInputChange = (e) => {
+    dispatch(setSearch(e.target.value));
+  };
 
   return (
-    <nav className="bg-white shadow-md fixed w-full z-50"> {/* Increased z-index to 50 */}
+    <nav className="bg-white shadow-md fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
           <Link to="/" className="flex items-center">
             <span className="text-2xl font-bold text-gray-800 hover:text-gray-600 transition-colors">
               Foodi Haven
             </span>
           </Link>
 
-          {/* Right Section */}
           <div className="flex items-center gap-4">
-            {/* Search Bar */}
             <div className="relative group">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <FiSearch className="h-5 w-5 text-gray-400" />
               </div>
-              <input
-                type="text"
-                placeholder="Search dishes..."
-                className="pl-10 pr-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent w-48 md:w-64 transition-all"
-              />
+              <form onSubmit={(e) => e.preventDefault()}>
+                <input
+                  type="text"
+                  placeholder="Search dishes..."
+                  value={searchValue}
+                  onChange={handleInputChange}
+                  className="pl-10 pr-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent w-48 md:w-64 transition-all"
+                />
+              </form>
             </div>
 
-            {/* Cart Icon */}
-            <Link 
+            <Link
               to="/cart"
               className="p-2 text-gray-600 hover:text-orange-600 relative transition-colors"
             >

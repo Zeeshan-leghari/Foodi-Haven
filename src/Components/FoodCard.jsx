@@ -23,44 +23,39 @@ const FoodCard = ({ item }) => {
             alt={item.name}
             loading="lazy"
           />
-          
+
           <div className="absolute top-3 left-3 bg-white/90 backdrop-blur px-3 py-1.5 rounded-full text-sm font-medium text-gray-700 shadow-sm">
             {item.category}
           </div>
-          
+
           <div className="absolute bottom-3 right-3 bg-gradient-to-r from-orange-400 to-orange-500 text-white px-4 py-2 rounded-full shadow-lg">
-            <span className="font-bold text-lg">
-              ${item.price?.toFixed(0)}
-            </span>
+            <span className="font-bold text-lg">${item.price?.toFixed(0)}</span>
           </div>
         </div>
 
         <div className="p-5 flex flex-col flex-grow">
-
           <h3 className="text-xl font-bold text-gray-800 mb-3 truncate">
             {item.name}
           </h3>
-
 
           <p className="text-gray-600 text-sm mb-4 line-clamp-3 leading-relaxed">
             {item.desc}
           </p>
 
-          
           <div className="mt-auto flex justify-between items-center">
             <div className="flex items-center gap-2">
-              <Rating 
-                value={item.rating} 
-                precision={0.5} 
-                readOnly 
+              <Rating
+                value={item.rating}
+                precision={0.5}
+                readOnly
                 size="small"
                 sx={{
-                  '& .MuiRating-iconFilled': {
-                    color: '#f59e0b',
+                  "& .MuiRating-iconFilled": {
+                    color: "#f59e0b",
                   },
-                  '& .MuiRating-iconHover': {
-                    color: '#f59e0b',
-                  }
+                  "& .MuiRating-iconHover": {
+                    color: "#f59e0b",
+                  },
                 }}
               />
               <span className="text-sm text-gray-500 font-medium">
@@ -70,8 +65,8 @@ const FoodCard = ({ item }) => {
             <button
               onClick={handleCartItem}
               className={`p-2.5 rounded-full transition-all flex items-center justify-center ${
-                isInCart 
-                  ? "bg-red-50 text-red-600 hover:bg-red-100" 
+                isInCart
+                  ? "bg-red-50 text-red-600 hover:bg-red-100"
                   : "bg-orange-50 text-orange-600 hover:bg-orange-100"
               }`}
               aria-label={isInCart ? "Remove from cart" : "Add to cart"}
