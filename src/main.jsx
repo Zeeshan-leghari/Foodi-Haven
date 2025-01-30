@@ -4,10 +4,9 @@ import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App';
 import CartPage from './page/CartPage';
+import Home from './page/Home';
+import PaymentPage from './page/PaymentPage';
 import Errorpage from './page/Errorpage';
-import Home from './Page/Home';
-import PaymentPage from './Page/PaymentPage';
-
 
 const router = createBrowserRouter([
   {
